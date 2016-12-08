@@ -24,9 +24,7 @@ module.exports = {
   },
   remove: function(req, res){
     console.log("POST DATA", req.params);
-    // ...delete 1 record by a certain key/vaue.
-    User.remove({_id: req.params.id}, function(err){
-     // This code will run when the DB has attempted to remove all matching records to {_id: 'insert record unique id here'}
+    User.remove({name: req.params.name}, function(err){
      if(err) {
         console.log('something went wrong');
       } else { 
