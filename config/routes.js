@@ -7,15 +7,15 @@ module.exports = function(app){
   })
 
   app.get('/new/:name', function(req, res) {  
-    
+    users.new(req, res);
   })
 
   app.get('/remove/:name', function(req, res) {  
-    
+    users.remove(req, res);
   })
 
   app.get('/:name', function(req, res) {  
-    
+    users.detail(req, res);
   })
 
 }
