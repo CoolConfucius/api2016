@@ -8,10 +8,10 @@ module.exports = {
     })
   },
   new: function(req, res) {
-    console.log("POST DATA", req.body);
+    console.log("POST DATA", req.params);
 
     var user = new User({
-      name: req.body.name
+      name: req.params.name
     });
     user.save(function(err) {
       if(err) {
@@ -23,7 +23,7 @@ module.exports = {
     })
   },
   remove: function(req, res){
-    console.log("POST DATA", req.body);
+    console.log("POST DATA", req.params);
     // ...delete 1 record by a certain key/vaue.
     User.remove({_id: req.params.id}, function(err){
      // This code will run when the DB has attempted to remove all matching records to {_id: 'insert record unique id here'}
@@ -37,9 +37,9 @@ module.exports = {
   },
   
   detail: function(req, res) {
-    console.log("ID!", req.params.id);
-    User.findOne({_id: req.params.id}, function(err, user){
-      res.send(user)
+    console.log("ID!", req.params.name);
+    User.findOne({name: req.params.name}, function(err, user){
+      res.send(user);
     })
   }
 }

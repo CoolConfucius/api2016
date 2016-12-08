@@ -7,6 +7,7 @@ var app = express();
 var bodyParser = require('body-parser');
 // Integrate body-parser with our App
 app.use(bodyParser.urlencoded({ extended: true }));
+app.use(bodyParser.json()); 
 
 require('./config/mongoose.js');
 
