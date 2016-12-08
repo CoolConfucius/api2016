@@ -4,7 +4,7 @@ var User = mongoose.model('User');
 module.exports = {
   show: function(req, res) {
     User.find({}, function(err, users){
-      res.send('index', {users})
+      res.send(users)
     })
   },
   new: function(req, res) {
@@ -39,7 +39,7 @@ module.exports = {
   detail: function(req, res) {
     console.log("ID!", req.params.id);
     User.findOne({_id: req.params.id}, function(err, user){
-      res.send('detail', {user})
+      res.send(user)
     })
   }
 }
